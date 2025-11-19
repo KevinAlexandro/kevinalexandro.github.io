@@ -1,49 +1,159 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Gonzalez - GSS Student Life Director Candidate</title>
+    <meta name="description" content="Vote Kevin Gonzalez for GSS Student Life Director">
+    <!-- Tailwind CSS for modern, responsive styling without external CSS files -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    
-    <title>Kevin Gonzalez</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Professional Blue Gradient */
+            min-height: 100vh;
+        }
+        
+        /* Animation for fade-in effect */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom hover effects for buttons */
+        .link-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .link-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Profile Image Placeholder Styling */
+        .profile-placeholder {
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #64748b;
+        }
+    </style>
 </head>
+<body class="text-gray-800 flex flex-col items-center justify-center p-4">
 
-<body>
-    <div class="container">
-    <div class="col-xs-12">
-            <div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
-                <img class="backdrop linktree">
-                <h2 style="color: #ffffff; padding-top: 20px;">Kevin Alexandro Gonzalez Castro</h2>
-            </div>
-    </div>
-    </div>
-
-
-    <div class="container">
-    <div class="col-xs-12">
-            <div class="text-center">
-                <div style="padding-bottom: 30px;">
-                    <button onclick="location.href='https://www.linkedin.com/in/kevingonzalezcastro/'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">Conecta en mi perfil de LinkedIn</button>
+    <!-- Main Container -->
+    <div class="w-full max-w-md mx-auto fade-in" style="animation-delay: 0.1s;">
+        
+        <!-- Header / Profile Section -->
+        <div class="text-center mb-8 pt-8">
+            <!-- Profile Image Area -->
+            <div class="relative mx-auto w-32 h-32 mb-4 rounded-full p-1 bg-white bg-opacity-30 backdrop-blur-sm shadow-lg">
+                <!-- 
+                     REPLACE THE SRC BELOW WITH YOUR ACTUAL PHOTO URL.
+                     Example: src="https://yourwebsite.com/photo.jpg" 
+                     If the image fails, it falls back to the initials.
+                -->
+                <img 
+                    src="placeholder-image.jpg" 
+                    onerror="this.style.display='none'; document.getElementById('fallback-avatar').style.display='flex';"
+                    alt="Kevin Gonzalez" 
+                    class="w-full h-full rounded-full object-cover border-2 border-white"
+                >
+                <!-- Fallback Avatar (Initials) if no image is found -->
+                <div id="fallback-avatar" class="profile-placeholder w-full h-full rounded-full border-2 border-white absolute top-0 left-0 hidden">
+                    KG
                 </div>
-                <div style="padding-bottom: 30px;">
-                    <button onclick="location.href='https://www.youtube.com/@Kevin007pln'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">Mira mi canal de Youtube</button>
-                </div>
             </div>
-    </div>
-    </div>
 
-        <div class="text-center">
-            <a href="https://codepen.io/nightcl4w/pen/dEjreJ" style="color: #34312f;" target="_blank">Creado por OrderMerch</a>
+            <h1 class="text-3xl font-bold text-white mb-1 drop-shadow-md">Kevin Gonzalez</h1>
+            <p class="text-blue-100 text-lg font-medium">Candidate for GSS Student Life Director</p>
+            <p class="text-blue-200 text-sm mt-2 max-w-xs mx-auto">Enhancing student life, one event at a time. Vote for vision, vote for Kevin.</p>
         </div>
 
+        <!-- Links Section -->
+        <div class="space-y-4 w-full px-2">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <!-- This pre-lander was created by Brandon Nilsson -->
-    <!-- You're welcome to edit, reproduce and change this template as long as original contributation stays present on the website at all times.  -->
+            <!-- Primary CTA: Campaign Vision -->
+            <a href="https://docs.google.com/document/d/YOUR_GOOGLE_DOC_ID_HERE" target="_blank" class="fade-in block" style="animation-delay: 0.2s;">
+                <div class="link-card bg-white hover:bg-yellow-50 text-gray-800 font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-between group border-2 border-transparent hover:border-yellow-400">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-scroll text-lg"></i>
+                        </div>
+                        <span class="text-lg">Read My Campaign Vision</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" class="fade-in block" style="animation-delay: 0.3s;">
+                <div class="link-card bg-white bg-opacity-95 hover:bg-opacity-100 text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </div>
+                        <span>Follow me on Instagram</span>
+                    </div>
+                    <i class="fas fa-external-link-alt text-gray-400 text-sm"></i>
+                </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/kevingonzalezcastro/" target="_blank" class="fade-in block" style="animation-delay: 0.4s;">
+                <div class="link-card bg-white bg-opacity-95 hover:bg-opacity-100 text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </div>
+                        <span>Connect on LinkedIn</span>
+                    </div>
+                    <i class="fas fa-external-link-alt text-gray-400 text-sm"></i>
+                </div>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@Kevin007pln" target="_blank" class="fade-in block" style="animation-delay: 0.5s;">
+                <div class="link-card bg-white bg-opacity-95 hover:bg-opacity-100 text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </div>
+                        <span>Watch my YouTube Channel</span>
+                    </div>
+                    <i class="fas fa-external-link-alt text-gray-400 text-sm"></i>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-12 mb-6 text-center fade-in" style="animation-delay: 0.6s;">
+            <p class="text-blue-200 text-xs opacity-80">
+                © <span id="year"></span> Kevin Gonzalez Campaign.<br>
+                Vote for Experience. Vote for GSS.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // Automatically update the year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
-
 </html>

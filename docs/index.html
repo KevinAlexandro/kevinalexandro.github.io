@@ -3,214 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Gonzalez - GSS Student Life Director Candidate</title>
-    <meta name="description" content="Vote Kevin Gonzalez for GSS Student Life Director">
-    <!-- Tailwind CSS for layout -->
+    <title>Kevin Alexandro Gonzalez Castro — Data Engineer</title>
+    <meta name="description" content="Master of Science in Big Data candidate with over 5 years of corporate experience in data engineering and intelligent automation.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Added Open Sans to match your CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- YOUR CUSTOM CSS INTEGRATION --- */
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            /* The animated gradient from your CSS */
-            background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-            background-size: 400% 400%;
-            animation: Gradient 15s ease infinite;
-            min-height: 100vh; 
-            color: #fff;
-        }
-
-        @keyframes Gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Your backdrop shadow style applied to the image container */
-        .backdrop-shadow {
-            box-shadow: 0px 6px 5px rgba(17, 17, 17, 0.5); 
-        }
-
-        /* --- ADDITIONAL UTILITIES --- */
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Glassmorphism Card Style */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            color: #1f2937; /* Dark gray text for readability */
-        }
-
-        /* Button Hover Effects */
-        .link-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .link-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body class="flex flex-col items-center p-4 sm:p-8">
 
-    <!-- Main Container -->
-    <div class="w-full max-w-2xl mx-auto fade-in" style="animation-delay: 0.1s;">
-        
-        <!-- Header / Profile Section -->
-        <div class="text-center mb-10 pt-4">
-            <!-- Profile Image -->
-            <div class="relative mx-auto w-32 h-32 mb-4">
-                <img 
-                    src="https://avatars.githubusercontent.com/u/32605942?v=4" 
-                    alt="Kevin Gonzalez" 
-                    class="w-full h-full rounded-full object-cover border-4 border-white/30 backdrop-shadow"
-                >
-            </div>
-
-            <h1 class="text-4xl font-bold text-white mb-2 drop-shadow-md tracking-wide">Kevin Gonzalez</h1>
-            <p class="text-white/90 text-xl font-light mb-2">Candidate for GSS Student Life Director</p>
-            <div class="inline-block bg-white/20 rounded-full px-4 py-1 backdrop-blur-sm">
-                <p class="text-white text-sm font-semibold">Big Data MPCS Student</p>
-            </div>
-        </div>
-
-        <!-- VISION SECTION (New) -->
-        <div class="glass-card rounded-2xl p-6 mb-6 shadow-xl text-center fade-in" style="animation-delay: 0.2s;">
-            <h2 class="text-2xl font-bold text-blue-900 mb-3">The Vision</h2>
-            <p class="text-lg text-gray-700 leading-relaxed italic">
-                "To build a diverse and supportive social fabric, creating networks that allow us all to thrive and grow holistically."
-            </p>
-        </div>
-
-        <!-- THE 3 PILLARS (Grid Layout) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 fade-in" style="animation-delay: 0.3s;">
-            
-            <!-- Pillar 1 -->
-            <div class="glass-card p-5 rounded-xl shadow-lg flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
-                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-3 text-xl">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <h3 class="font-bold text-gray-900 mb-2">Professional Connection</h3>
-                <p class="text-sm text-gray-600">Building networking opportunities with alumni to inspire and prepare us for our careers.</p>
-            </div>
-
-            <!-- Pillar 2 -->
-            <div class="glass-card p-5 rounded-xl shadow-lg flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
-                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mb-3 text-xl">
-                    <i class="fas fa-people-roof"></i>
-                </div>
-                <h3 class="font-bold text-gray-900 mb-2">Inclusive Community</h3>
-                <p class="text-sm text-gray-600">Organizing diverse events, from sports to cultural festivities and advocacy dates.</p>
-            </div>
-
-            <!-- Pillar 3 -->
-            <div class="glass-card p-5 rounded-xl shadow-lg flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
-                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-3 text-xl">
-                    <i class="fas fa-bullhorn"></i>
-                </div>
-                <h3 class="font-bold text-gray-900 mb-2">Clear Communication</h3>
-                <p class="text-sm text-gray-600">Strengthening our virtual GSS community to be frequent, accessible, and effective.</p>
-            </div>
-        </div>
-
-        <!-- EXPERIENCE & CLOSING (New) -->
-        <div class="glass-card rounded-2xl p-6 mb-10 shadow-xl fade-in" style="animation-delay: 0.4s;">
-            <h3 class="text-xl font-bold text-gray-800 mb-3 border-b pb-2">Why Me?</h3>
-            <p class="text-gray-700 mb-4 leading-relaxed">
-                I understand the unique challenges of our graduate community. My prior experience managing logistics for sports teams and social events has given me the practical skills to bring these projects to life.
-            </p>
-            <p class="text-gray-900 font-semibold text-center bg-blue-50 p-4 rounded-lg border border-blue-100">
-                "I am ready to work for this community, ensuring we all look back on our time at SFU and smile at the connections we made."
-            </p>
-        </div>
-
-        <!-- Connect Section Title -->
-        <h3 class="text-white text-center text-lg font-bold mb-4 uppercase tracking-widest opacity-80">Connect With Me</h3>
-
-        <!-- Links Section (Existing Buttons) -->
-        <div class="space-y-4 w-full max-w-md mx-auto px-2 mb-12">
-
-            <!-- Google Doc Link (Kept as a "Full Detail" backup) -->
-            <a href="https://1sfu-my.sharepoint.com/:w:/g/personal/kag18_sfu_ca/EeDwtKPt0TZBgkowHwsQ1uwBleXaVSRvHfpe-PALb1JuqQ?e=3VUSoc" target="_blank" class="fade-in block" style="animation-delay: 0.5s;">
-                <div class="link-card bg-white text-gray-800 font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-between group border-2 border-transparent hover:border-yellow-400">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                            <i class="fas fa-file-alt text-lg"></i>
-                        </div>
-                        <span class="text-lg">View Full Platform Doc</span>
-                    </div>
-                    <i class="fas fa-chevron-right text-gray-400"></i>
-                </div>
-            </a>
-
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" class="fade-in block" style="animation-delay: 0.6s;">
-                <div class="link-card bg-white/90 hover:bg-white text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group backdrop-blur-sm">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </div>
-                        <span>Follow me on Instagram</span>
-                    </div>
-                    <i class="fas fa-external-link-alt text-gray-400 text-sm"></i>
-                </div>
-            </a>
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/kevingonzalezcastro/" target="_blank" class="fade-in block" style="animation-delay: 0.7s;">
-                <div class="link-card bg-white/90 hover:bg-white text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group backdrop-blur-sm">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </div>
-                        <span>Connect on LinkedIn</span>
-                    </div>
-                    <i class="fas fa-external-link-alt text-gray-400 text-sm"></i>
-                </div>
-            </a>
-
-            <!-- YouTube -->
-            <!-- <a href="https://www.youtube.com/@Kevin007pln" target="_blank" class="fade-in block" style="animation-delay: 0.8s;">
-                <div class="link-card bg-white/90 hover:bg-white text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group backdrop-blur-sm">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                            <i class="fab fa-youtube text-xl"></i>
-                        </div>
-                        <span>Watch my YouTube Channel</span>
-                    </div>
-                    <i class="fas fa-external-link-alt text-gray-400 text-sm"></i>
-                </div>
-            </a> -->
-
-        </div>
-
-        <!-- Footer -->
-        <div class="mb-6 text-center fade-in" style="animation-delay: 0.9s;">
-            <p class="text-white/80 text-xs">
-                © <span id="year"></span> Kevin Gonzalez Campaign.<br>
-                Created by KevinAlexandro
-            </p>
-        </div>
-
+    <div id="app" class="w-full max-w-3xl mx-auto fade-in delay-1">
+        <div id="hero" class="text-center mb-10 pt-4"></div>
+        <section id="profile" class="glass-card rounded-2xl p-6 mb-6 shadow-xl fade-in delay-2"></section>
+        <section id="experience" class="mb-6 fade-in delay-3"></section>
+        <section id="projects" class="mb-6 fade-in delay-4"></section>
+        <section id="skills" class="glass-card rounded-2xl p-6 mb-10 shadow-xl fade-in delay-5"></section>
+        <section id="connect"></section>
+        <footer id="footer" class="mb-6 text-center fade-in delay-9"></footer>
     </div>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <script src="assets/main.js" defer></script>
 </body>
 </html>

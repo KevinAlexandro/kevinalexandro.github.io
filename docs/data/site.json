@@ -1,0 +1,214 @@
+{
+  "meta": {
+    "title": "Kevin Alexandro Gonzalez Castro — Data Engineer",
+    "description": "Master of Science in Big Data candidate with over 5 years of corporate experience in data engineering and intelligent automation."
+  },
+  "hero": {
+    "name": "Kevin Alexandro Gonzalez Castro",
+    "tagline": "Data Analyst — Data Engineer — Master of Science in Big Data",
+    "location": "Vancouver, BC — Canada",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/32605942?v=4",
+    "avatarAlt": "Kevin Alexandro Gonzalez Castro"
+  },
+  "profile": {
+    "heading": "Profile",
+    "body": "Master of Science in Big Data candidate with over 5 years of corporate experience in data engineering and intelligent automation. Proven track record of designing robust ETL/ELT pipelines and developing enterprise-grade Power BI dashboards to drive business intelligence. Experienced in utilizing Python, SQL, and Azure to translate complex operational requirements into reliable data products. Brings direct experience developing RPA solutions for the banking sector, combined with a passion for implementing AI/ML-enabled data management to build organizational trust and streamline financial services."
+  },
+  "experience": [
+    {
+      "title": "Junior AI Engineer",
+      "dates": "May 2026 — Aug 2026",
+      "org": "SFU Big Data Hub · Vancouver, Canada",
+      "bullets": [
+        "Built a data harmonization solution for SFU HR's job descriptions, leveraging a monorepo infrastructure comprising MinIO, Qdrant, and StarRocks.",
+        "Translated business and technical concepts into clear, accessible documentation and guidance to support team members and stakeholders."
+      ]
+    },
+    {
+      "title": "Student Fundraiser Caller",
+      "dates": "Sep 2025 — Jun 2026",
+      "org": "Simon Fraser University · Vancouver, Canada",
+      "bullets": [
+        "Foster long-term relationships with SFU alumni through outbound calls, demonstrating strong oral communication and customer service skills."
+      ]
+    },
+    {
+      "title": "Teaching Assistant — CMPT 354 Database Systems I",
+      "dates": "Jan 2026 — Apr 2026",
+      "org": "Simon Fraser University · Vancouver, Canada",
+      "bullets": [
+        "Mentor students on optimizing and debugging complex SQL queries for relational (MS SQL Server) databases, ensuring adherence to modern data management and architecture best practices."
+      ]
+    },
+    {
+      "title": "Data Engineer",
+      "dates": "Nov 2021 — Sep 2024",
+      "org": "Reelgood · US remote & Quito, Ecuador",
+      "bullets": [
+        "Developed over 50 Python-based web crawlers to automate data cleaning, normalization, and validation, delivering structured datasets for multi-region core business activities.",
+        "Built a text extraction and language identification solution using Azure and GCP, hosting and serving unstructured image data into the company data ecosystem.",
+        "Integrated third-party deep links into the company data ecosystem via reverse engineering and HTTP request analysis.",
+        "Worked collaboratively with a multicultural global team employing agile development practices."
+      ]
+    },
+    {
+      "title": "RPA Technical Lead",
+      "dates": "Jul 2019 — Nov 2021",
+      "org": "Binaria · Quito, Ecuador",
+      "bullets": [
+        "Led a team of 4 developers, directing scalable automation solutions aligned with business goals and maintaining 100% SLA compliance.",
+        "Developed Proof of Concepts during presale showcasing process automation with Automation Anywhere and integrations with databases, cloud services, and coding (SQL, VBA, Python, Bash).",
+        "Provided L1 and L2 technical support, managing client relationships and documenting technical procedures for end-users."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "GDELT Pipeline for Stock Prediction",
+      "dates": "Mar 2026",
+      "repoUrl": "https://github.com/BigData-OG/og-gdelt",
+      "repoLabel": "BigData-OG/og-gdelt",
+      "bullets": [
+        "Engineered a scalable data pipeline utilizing Apache Spark and Terraform on GCP, processing 5 years of GDELT data to train a predictive ML model.",
+        "Implemented highly available infrastructure to predict stock prices based on global event sentiment in the GDELT database."
+      ]
+    },
+    {
+      "title": "TransLink Data Analysis — Power BI Dashboard",
+      "dates": "Oct 2025",
+      "repoUrl": "https://github.sfu.ca/nth8/TransLink-Analysis",
+      "repoLabel": "github.sfu.ca/nth8/TransLink-Analysis",
+      "bullets": [
+        "Implemented a maintainable Data Medallion architecture and Data Lake for reliable ingestion and Power BI visualization.",
+        "Developed interactive dashboards using the TransLink data model to display insights."
+      ]
+    },
+    {
+      "title": "chadbot — StormHacks Hackathon",
+      "dates": "Oct 2025",
+      "repoUrl": "https://github.com/big-cachemoney/chadbot",
+      "repoLabel": "big-cachemoney/chadbot",
+      "bullets": [
+        "Engineered a dynamic chat interface using LangChain and SQL with a PostgreSQL database for real-time, data-driven LLM responses."
+      ]
+    },
+    {
+      "title": "Trust Net — Banco Guayaquil Hackathon",
+      "dates": "Apr 2025",
+      "repoUrl": "https://github.com/ajpincay/hackaton-bg-cosierra",
+      "repoLabel": "ajpincay/hackaton-bg-cosierra",
+      "bullets": [
+        "Full life-cycle from ideation to development and pitching to C-level executives.",
+        "Designed a technically feasible integration with the bank's app using AWS, developing front-end and back-end logic."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Soft Skills",
+      "tags": [
+        "Teamwork",
+        "Customer oriented",
+        "Requirements Gathering",
+        "Effective Communication",
+        "Strong Work Ethic",
+        "Accepting Feedback",
+        "Client Relationship Management",
+        "Problem-Solving"
+      ]
+    },
+    {
+      "category": "AI/ML & Data Platforms",
+      "tags": [
+        "ETL Pipelines",
+        "Data cleaning",
+        "Data integration",
+        "Apache Spark",
+        "Data Lake & Delta Lake",
+        "PySpark",
+        "Pandas",
+        "Matplotlib",
+        "Databricks",
+        "Gen AI & LLM Integration",
+        "Langchain",
+        "SciKit Learn"
+      ]
+    },
+    {
+      "category": "Programming & Automation",
+      "tags": [
+        "Python",
+        "Java",
+        "PostgreSQL",
+        "GitHub",
+        "Git",
+        "Reverse Engineering",
+        "Linux/Unix & Bash"
+      ]
+    },
+    {
+      "category": "Visualization & Cloud",
+      "tags": [
+        "Power BI",
+        "Azure: DevOps",
+        "AWS: S3, EMR, Redshift",
+        "Aiven: Databases",
+        "Docker",
+        "GCP: Dataproc, Cloud Run"
+      ]
+    }
+  ],
+  "connect": {
+    "heading": "Connect With Me",
+    "items": [
+      {
+        "type": "cv",
+        "label": "Download Full CV",
+        "href": "../cv_pdf/KG_CV_DE.pdf",
+        "icon": "fas fa-file-pdf",
+        "accent": "yellow",
+        "external": true,
+        "animationDelay": "0.6s"
+      },
+      {
+        "type": "email",
+        "label": "kgonzalezc@yahoo.com",
+        "href": "mailto:kgonzalezc@yahoo.com",
+        "icon": "fas fa-envelope",
+        "accent": "purple",
+        "external": false,
+        "animationDelay": "0.65s"
+      },
+      {
+        "type": "phone",
+        "label": "xxx xxx xxxx",
+        "href": "tel:+12369923233",
+        "icon": "fas fa-phone",
+        "accent": "green",
+        "external": false,
+        "animationDelay": "0.7s"
+      },
+      {
+        "type": "linkedin",
+        "label": "Connect on LinkedIn",
+        "href": "https://www.linkedin.com/in/kevingonzalezcastro/",
+        "icon": "fab fa-linkedin-in",
+        "accent": "blue",
+        "external": true,
+        "animationDelay": "0.75s"
+      },
+      {
+        "type": "github",
+        "label": "View GitHub Profile",
+        "href": "https://github.com/KevinAlexandro",
+        "icon": "fab fa-github",
+        "accent": "gray",
+        "external": true,
+        "animationDelay": "0.8s"
+      }
+    ]
+  },
+  "footer": {
+    "copyrightName": "Kevin Alexandro Gonzalez Castro"
+  }
+}

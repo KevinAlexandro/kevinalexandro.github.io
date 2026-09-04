@@ -1,52 +1,6 @@
 (function () {
   const DATA_URL = "data/site.json";
 
-  const ACCENT_CLASSES = {
-    yellow: {
-      card: "bg-white text-gray-800 font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-between group border-2 border-transparent hover:border-yellow-400",
-      iconWrap: "w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform",
-      iconSize: "text-lg",
-      labelClass: "text-lg",
-      trailing: "fas fa-chevron-right text-gray-400",
-    },
-    purple: {
-      card: "link-card bg-white/90 hover:bg-white text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group backdrop-blur-sm",
-      iconWrap: "w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform accent-text",
-      iconSize: "text-xl",
-      labelClass: "",
-      trailing: "fas fa-external-link-alt text-gray-400 text-sm",
-    },
-    green: {
-      card: "link-card bg-white/90 hover:bg-white text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group backdrop-blur-sm",
-      iconWrap: "w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform",
-      iconSize: "text-xl",
-      labelClass: "",
-      trailing: "fas fa-external-link-alt text-gray-400 text-sm",
-    },
-    blue: {
-      card: "link-card bg-white/90 hover:bg-white text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group backdrop-blur-sm",
-      iconWrap: "w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform",
-      iconSize: "text-xl",
-      labelClass: "",
-      trailing: "fas fa-external-link-alt text-gray-400 text-sm",
-    },
-    gray: {
-      card: "link-card bg-white/90 hover:bg-white text-gray-800 font-semibold py-3.5 px-6 rounded-xl shadow-md flex items-center justify-between group backdrop-blur-sm",
-      iconWrap: "w-10 h-10 bg-gray-100 text-gray-800 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform",
-      iconSize: "text-xl",
-      labelClass: "",
-      trailing: "fas fa-external-link-alt text-gray-400 text-sm",
-    },
-  };
-
-  const DELAY_CLASS = {
-    "0.6s": "delay-6",
-    "0.65s": "delay-65",
-    "0.7s": "delay-7",
-    "0.75s": "delay-75",
-    "0.8s": "delay-8",
-  };
-
   function el(tag, className, text) {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -61,20 +15,11 @@
     return i;
   }
 
-  function bulletList(bullets) {
-    const ul = el("ul", "text-sm text-gray-600 list-disc list-inside space-y-1");
-    bullets.forEach(function (bullet) {
-      ul.appendChild(el("li", null, bullet));
-    });
-    return ul;
-  }
-
   function showError(message) {
     const root = document.getElementById("app");
     if (!root) return;
     root.innerHTML = "";
-    const banner = el("div", "error-banner", message);
-    root.appendChild(banner);
+    root.appendChild(el("div", "error-banner", message));
   }
 
   function applyMeta(meta) {
@@ -91,158 +36,258 @@
     }
   }
 
-  function renderHero(data) {
-    const mount = document.getElementById("hero");
-    if (!mount || !data) return;
-
-    const avatarWrap = el("div", "relative mx-auto w-32 h-32 mb-4");
-    const img = document.createElement("img");
-    img.src = data.avatarUrl;
-    img.alt = data.avatarAlt || data.name || "";
-    img.className = "w-full h-full rounded-full object-cover border-4 border-white/30 backdrop-shadow";
-    avatarWrap.appendChild(img);
-
-    const location = el("div", "inline-block bg-white/20 rounded-full px-4 py-1 backdrop-blur-sm");
-    const locationText = el("p", "text-white text-sm font-semibold");
-    locationText.appendChild(icon("fas fa-map-marker-alt mr-1"));
-    locationText.appendChild(document.createTextNode(" " + data.location));
-    location.appendChild(locationText);
-
-    mount.appendChild(avatarWrap);
-    mount.appendChild(el("h1", "text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-md tracking-wide", data.name));
-    mount.appendChild(el("p", "text-white/90 text-lg sm:text-xl font-light mb-2", data.tagline));
-    mount.appendChild(location);
+  /**
+   * Build a media panel.
+   * TODO: replace placeholder with a real image —
+   * set hero.imageUrl or about.imageUrl in data/site.json to a path like
+   * "assets/images/hero.jpg" or "assets/images/about.jpg", then place the file there.
+   */
+  function mediaPanel(imageUrl, placeholderLabel) {
+    const wrap = el("div", "split__media");
+    if (imageUrl) {
+      const img = document.createElement("img");
+      img.src = imageUrl;
+      img.alt = placeholderLabel || "";
+      wrap.appendChild(img);
+    } else {
+      wrap.appendChild(el("div", "media-placeholder", placeholderLabel || "Image placeholder"));
+    }
+    return wrap;
   }
 
-  function renderProfile(data) {
-    const mount = document.getElementById("profile");
-    if (!mount || !data) return;
-    mount.appendChild(el("h2", "text-2xl font-bold section-heading mb-3", data.heading));
-    mount.appendChild(el("p", "text-gray-700 leading-relaxed", data.body));
+  function mungedEmailLabel(email) {
+    if (!email || !email.user || !email.domain) return "Contact";
+    return email.user + " at " + email.domain;
   }
 
-  function renderExperience(items) {
-    const mount = document.getElementById("experience");
-    if (!mount || !items) return;
+  function assembleMailto(email) {
+    if (!email || !email.user || !email.domain) return "";
+    return "mailto:" + email.user + "@" + email.domain;
+  }
 
-    mount.appendChild(el("h2", "text-2xl font-bold text-white mb-4 drop-shadow-md", "Experience"));
+  function renderNav(nav) {
+    const mount = document.getElementById("nav");
+    if (!mount || !nav) return;
 
-    items.forEach(function (item) {
-      const card = el("div", "glass-card rounded-xl p-5 mb-4 shadow-lg");
-      const header = el("div", "flex flex-wrap justify-between gap-2 mb-2");
-      header.appendChild(el("h3", "font-bold text-gray-900", item.title));
-      header.appendChild(el("span", "text-sm text-gray-500", item.dates));
-      card.appendChild(header);
-      card.appendChild(el("p", "text-sm font-semibold mb-2 accent-text", item.org));
-      card.appendChild(bulletList(item.bullets || []));
-      mount.appendChild(card);
+    const header = el("nav", "site-nav");
+    header.setAttribute("aria-label", "Primary");
+
+    const brand = el("a", "site-nav__brand", nav.brand || "");
+    brand.href = "#hero";
+    header.appendChild(brand);
+
+    const list = el("ul", "site-nav__links");
+    (nav.links || []).forEach(function (link) {
+      const li = document.createElement("li");
+      const a = el("a", null, link.label);
+      a.href = link.href;
+      li.appendChild(a);
+      list.appendChild(li);
     });
+    header.appendChild(list);
+    mount.appendChild(header);
   }
 
-  function renderProjects(items) {
+  function renderHero(hero, email) {
+    const mount = document.getElementById("hero");
+    if (!mount || !hero) return;
+
+    const split = el("div", "split");
+
+    const text = el("div", "split__panel split__panel--text");
+    text.appendChild(el("h1", "hero-headline", hero.headline));
+    text.appendChild(el("p", "hero-summary", hero.summary));
+
+    const ctas = el("div", "cta-row");
+    (hero.ctas || []).forEach(function (cta) {
+      if (cta.type === "contact") {
+        const btn = el("button", "btn btn--ghost", cta.label || "Contact Me");
+        btn.type = "button";
+        btn.setAttribute("aria-label", mungedEmailLabel(email));
+        btn.addEventListener("click", function () {
+          const href = assembleMailto(email);
+          if (href) window.location.href = href;
+        });
+        ctas.appendChild(btn);
+        return;
+      }
+
+      const a = el("a", cta.style === "ghost" ? "btn btn--ghost" : "btn", cta.label);
+      a.href = cta.href || "#";
+      if (cta.external) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      }
+      ctas.appendChild(a);
+    });
+    text.appendChild(ctas);
+    split.appendChild(text);
+
+    // TODO: set hero.imageUrl in site.json to assets/images/hero.jpg (or your file) to replace this placeholder.
+    split.appendChild(mediaPanel(hero.imageUrl, "TODO: add hero photo"));
+    mount.appendChild(split);
+  }
+
+  function renderAbout(about) {
+    const mount = document.getElementById("about");
+    if (!mount || !about) return;
+
+    const split = el("div", "split split--about");
+
+    // TODO: set about.imageUrl in site.json to assets/images/about.jpg (or your file) to replace this placeholder.
+    split.appendChild(mediaPanel(about.imageUrl, "TODO: add about photo"));
+
+    const text = el("div", "split__panel split__panel--text");
+    text.appendChild(el("h2", "section-title", about.heading));
+    text.appendChild(el("p", "section-kicker", about.subheading));
+    text.appendChild(el("p", "about-body", about.body));
+    split.appendChild(text);
+
+    mount.appendChild(split);
+  }
+
+  function renderExperience(experience) {
+    const mount = document.getElementById("experience");
+    if (!mount || !experience) return;
+
+    const section = el("div", "section-block");
+    const header = el("div", "section-block__header");
+    header.appendChild(el("h2", "section-title", experience.heading));
+    if (experience.subheading) {
+      header.appendChild(el("p", "section-block__subtitle", experience.subheading));
+    }
+    section.appendChild(header);
+
+    const grid = el("div", "experience-grid");
+    (experience.items || []).forEach(function (item) {
+      const card = el("article", "experience-card");
+      card.appendChild(el("h3", "experience-card__title", item.title));
+      card.appendChild(el("p", "experience-card__org", item.org));
+      card.appendChild(el("p", "experience-card__blurb", item.blurb));
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    mount.appendChild(section);
+  }
+
+  function renderEducation(education) {
+    const mount = document.getElementById("education");
+    if (!mount || !education) return;
+
+    const section = el("div", "education");
+    section.appendChild(el("h2", "section-title", education.heading));
+    section.appendChild(el("hr", "education__rule"));
+
+    const grid = el("div", "education-grid");
+    (education.items || []).forEach(function (item) {
+      const card = el("article", "education-item");
+      const iconWrap = el("div", "education-item__icon");
+      iconWrap.appendChild(icon("fas " + (item.icon || "fa-graduation-cap")));
+      card.appendChild(iconWrap);
+      card.appendChild(el("p", "education-item__label", item.label));
+      card.appendChild(el("p", "education-item__detail", item.detail));
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    mount.appendChild(section);
+  }
+
+  function renderSkills(skills) {
+    const mount = document.getElementById("skills");
+    if (!mount || !skills) return;
+
+    const section = el("div", "section-block");
+    const header = el("div", "section-block__header");
+    header.appendChild(el("h2", "section-title", skills.heading));
+    if (skills.subheading) {
+      header.appendChild(el("p", "section-block__subtitle", skills.subheading));
+    }
+    section.appendChild(header);
+
+    const matrix = el("div", "skills-matrix");
+    (skills.groups || []).forEach(function (group) {
+      const groupEl = el("div", "skill-group");
+      groupEl.appendChild(el("h3", "skill-group__title", group.category));
+      const tags = el("div", "skill-tags");
+      (group.tags || []).forEach(function (tag) {
+        tags.appendChild(el("span", "skill-tag", tag));
+      });
+      groupEl.appendChild(tags);
+      matrix.appendChild(groupEl);
+    });
+    section.appendChild(matrix);
+    mount.appendChild(section);
+  }
+
+  function renderProjects(projects) {
     const mount = document.getElementById("projects");
-    if (!mount || !items) return;
+    if (!mount || !projects) return;
 
-    mount.appendChild(el("h2", "text-2xl font-bold text-white mb-4 drop-shadow-md", "Projects"));
+    const section = el("div", "section-block");
+    const header = el("div", "section-block__header");
+    header.appendChild(el("h2", "section-title", projects.heading));
+    if (projects.subheading) {
+      header.appendChild(el("p", "section-block__subtitle", projects.subheading));
+    }
+    section.appendChild(header);
 
-    items.forEach(function (item) {
-      const card = el("div", "glass-card rounded-xl p-5 mb-4 shadow-lg");
-      const header = el("div", "flex flex-wrap justify-between gap-2 mb-2");
-      header.appendChild(el("h3", "font-bold text-gray-900", item.title));
-      header.appendChild(el("span", "text-sm text-gray-500", item.dates));
-      card.appendChild(header);
+    const grid = el("div", "projects-grid");
+    (projects.items || []).forEach(function (item) {
+      const card = el("article", "project-card");
+      card.appendChild(el("h3", "project-card__title", item.title));
 
       if (item.repoUrl) {
-        const link = document.createElement("a");
-        link.href = item.repoUrl;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.className = "text-sm font-semibold hover:underline accent-text";
-        link.appendChild(icon("fab fa-github mr-1"));
-        link.appendChild(document.createTextNode(" " + (item.repoLabel || item.repoUrl)));
-        card.appendChild(link);
+        const repo = el("a", "project-card__repo", item.repoLabel || item.repoUrl);
+        repo.href = item.repoUrl;
+        repo.target = "_blank";
+        repo.rel = "noopener noreferrer";
+        card.appendChild(repo);
       }
 
-      const list = bulletList(item.bullets || []);
-      list.classList.add("mt-2");
-      card.appendChild(list);
-      mount.appendChild(card);
-    });
-  }
+      card.appendChild(el("p", "project-card__label", "Problem"));
+      card.appendChild(el("p", "project-card__text", item.problem));
 
-  function renderSkills(groups) {
-    const mount = document.getElementById("skills");
-    if (!mount || !groups) return;
+      card.appendChild(el("p", "project-card__label", "System design"));
+      card.appendChild(el("p", "project-card__text", item.systemDesign));
 
-    mount.appendChild(el("h2", "text-2xl font-bold section-heading mb-4", "Skills"));
-
-    groups.forEach(function (group, index) {
-      mount.appendChild(el("h3", "text-sm font-bold text-gray-800 mb-2", group.category));
-      const tagsWrap = el("div", index === groups.length - 1 ? "" : "mb-4");
-      (group.tags || []).forEach(function (tag) {
-        tagsWrap.appendChild(el("span", "skill-tag", tag));
+      card.appendChild(el("p", "project-card__label", "Tech stack"));
+      const stack = el("ul", "project-card__stack");
+      (item.techStack || []).forEach(function (tech) {
+        stack.appendChild(el("li", null, tech));
       });
-      mount.appendChild(tagsWrap);
+      card.appendChild(stack);
+
+      card.appendChild(el("p", "project-card__label", "Outcome"));
+      card.appendChild(el("p", "project-card__text", item.outcome));
+
+      grid.appendChild(card);
     });
-  }
-
-  function renderConnect(connect) {
-    const mount = document.getElementById("connect");
-    if (!mount || !connect) return;
-
-    mount.appendChild(el("h3", "text-white text-center text-lg font-bold mb-4 uppercase tracking-widest opacity-80", connect.heading || "Connect With Me"));
-
-    const list = el("div", "space-y-4 w-full max-w-md mx-auto px-2 mb-12");
-
-    (connect.items || []).forEach(function (item) {
-      const accent = ACCENT_CLASSES[item.accent] || ACCENT_CLASSES.gray;
-      const delayClass = DELAY_CLASS[item.animationDelay] || "";
-
-      const anchor = document.createElement("a");
-      anchor.href = item.href;
-      anchor.className = ("fade-in block " + delayClass).trim();
-      if (item.external) {
-        anchor.target = "_blank";
-        anchor.rel = "noopener noreferrer";
-      }
-
-      const card = el("div", item.accent === "yellow" ? "link-card " + accent.card : accent.card);
-      const left = el("div", "flex items-center");
-      const iconWrap = el("div", accent.iconWrap);
-      iconWrap.appendChild(icon(item.icon + " " + accent.iconSize));
-      left.appendChild(iconWrap);
-      left.appendChild(el("span", accent.labelClass, item.label));
-
-      card.appendChild(left);
-      card.appendChild(icon(accent.trailing));
-      anchor.appendChild(card);
-      list.appendChild(anchor);
-    });
-
-    mount.appendChild(list);
+    section.appendChild(grid);
+    mount.appendChild(section);
   }
 
   function renderFooter(footer) {
     const mount = document.getElementById("footer");
     if (!mount || !footer) return;
 
-    const p = el("p", "text-white/80 text-xs");
+    const wrap = el("div", "site-footer");
+    const p = el("p", null, null);
     p.appendChild(document.createTextNode("© "));
-    const year = el("span", null, String(new Date().getFullYear()));
-    year.id = "year";
-    p.appendChild(year);
+    p.appendChild(document.createTextNode(String(new Date().getFullYear())));
     p.appendChild(document.createTextNode(" " + (footer.copyrightName || "")));
-    mount.appendChild(p);
+    wrap.appendChild(p);
+    mount.appendChild(wrap);
   }
 
   function render(data) {
     applyMeta(data.meta);
-    renderHero(data.hero);
-    renderProfile(data.profile);
+    renderNav(data.nav);
+    renderHero(data.hero, data.email);
+    renderAbout(data.about);
     renderExperience(data.experience);
-    renderProjects(data.projects);
+    renderEducation(data.education);
     renderSkills(data.skills);
-    renderConnect(data.connect);
+    renderProjects(data.projects);
     renderFooter(data.footer);
   }
 

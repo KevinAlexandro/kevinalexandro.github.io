@@ -36,21 +36,15 @@
     }
   }
 
-  /**
-   * Build a media panel.
-   * TODO: replace placeholder with a real image —
-   * set hero.imageUrl or about.imageUrl in data/site.json to a path like
-   * "assets/images/hero.jpg" or "assets/images/about.jpg", then place the file there.
-   */
-  function mediaPanel(imageUrl, placeholderLabel) {
+  function mediaPanel(imageUrl, altText) {
     const wrap = el("div", "split__media");
     if (imageUrl) {
       const img = document.createElement("img");
       img.src = imageUrl;
-      img.alt = placeholderLabel || "";
+      img.alt = altText || "";
       wrap.appendChild(img);
     } else {
-      wrap.appendChild(el("div", "media-placeholder", placeholderLabel || "Image placeholder"));
+      wrap.appendChild(el("div", "media-placeholder", "Image placeholder"));
     }
     return wrap;
   }
@@ -123,8 +117,7 @@
     text.appendChild(ctas);
     split.appendChild(text);
 
-    // TODO: set hero.imageUrl in site.json to assets/images/hero.jpg (or your file) to replace this placeholder.
-    split.appendChild(mediaPanel(hero.imageUrl, "TODO: add hero photo"));
+    split.appendChild(mediaPanel(hero.imageUrl, hero.headline || "Hero photo"));
     mount.appendChild(split);
   }
 
@@ -134,15 +127,33 @@
 
     const split = el("div", "split split--about");
 
-    // TODO: set about.imageUrl in site.json to assets/images/about.jpg (or your file) to replace this placeholder.
-    split.appendChild(mediaPanel(about.imageUrl, "TODO: add about photo"));
+    split.appendChild(mediaPanel(about.imageUrl, about.heading || "About photo"));
 
     const text = el("div", "split__panel split__panel--text");
     text.appendChild(el("h2", "section-title", about.heading));
-    text.appendChild(el("p", "section-kicker", about.subheading));
-    text.appendChild(el("p", "about-body", about.body));
-    split.appendChild(text);
+    if (about.subheading) {
+      text.appendChild(el("p", "section-kicker", about.subheading));
+    }
 
+    const list = el("ul", "about-list");
+    (about.highlights || []).forEach(function (item) {
+      const li = document.createElement("li");
+      li.className = "about-list__item";
+
+      const emoji = el("span", "about-list__emoji", item.emoji || "");
+      const label = el("span", "about-list__label", (item.label || "") + ":");
+      const content = el("span", "about-list__text", item.text || "");
+
+      li.appendChild(emoji);
+      li.appendChild(document.createTextNode(" "));
+      li.appendChild(label);
+      li.appendChild(document.createTextNode(" "));
+      li.appendChild(content);
+      list.appendChild(li);
+    });
+    text.appendChild(list);
+
+    split.appendChild(text);
     mount.appendChild(split);
   }
 

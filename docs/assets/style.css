@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
 }
 
 body {
@@ -30,6 +31,10 @@ body {
   color: var(--text-white);
   line-height: 1.6;
   min-height: 100vh;
+}
+
+#app {
+  padding-top: var(--nav-height);
 }
 
 a {
@@ -43,17 +48,24 @@ img {
 }
 
 /* ---------- Nav ---------- */
-.site-nav {
-  position: sticky;
+#nav {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
+}
+
+.site-nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
   min-height: var(--nav-height);
+  width: 100%;
   padding: 0.75rem 1.5rem;
-  background: rgba(0, 0, 0, 0.92);
+  background: rgba(0, 0, 0, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -93,7 +105,7 @@ img {
 }
 
 .split--about {
-  min-height: 70vh;
+  min-height: calc(100vh - var(--nav-height));
 }
 
 .split__panel {
@@ -210,6 +222,45 @@ img {
   max-width: var(--max-content);
   color: var(--text-muted);
   font-size: 1.05rem;
+}
+
+.about-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--max-content);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.about-list__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.45rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.about-list__item::before {
+  content: "–";
+  color: var(--text-white);
+  margin-right: 0.15rem;
+}
+
+.about-list__emoji {
+  flex-shrink: 0;
+}
+
+.about-list__label {
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.about-list__text {
+  color: var(--text-muted);
 }
 
 /* ---------- Experience ---------- */
@@ -464,6 +515,10 @@ img {
   .site-nav__links {
     justify-content: flex-start;
     gap: 0.75rem 1rem;
+  }
+
+  :root {
+    --nav-height: 6.5rem;
   }
 }
 

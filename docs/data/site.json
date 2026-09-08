@@ -6,17 +6,32 @@
   "nav": {
     "brand": "K. Gonzalez",
     "links": [
-      { "label": "Home", "href": "#hero" },
-      { "label": "About", "href": "#about" },
-      { "label": "Work Experience", "href": "#experience" },
-      { "label": "Education", "href": "#education" },
-      { "label": "Projects", "href": "#projects" }
+      {
+        "label": "Home",
+        "href": "#hero"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Work Experience",
+        "href": "#experience"
+      },
+      {
+        "label": "Education",
+        "href": "#education"
+      },
+      {
+        "label": "Projects",
+        "href": "#projects"
+      }
     ]
   },
   "hero": {
     "headline": "Data Engineer",
     "summary": "Master of Science in Big Data candidate with over 5 years of corporate experience in data engineering and intelligent automation. Designing robust ETL/ELT pipelines and enterprise-grade Power BI dashboards to drive business intelligence.",
-    "imageUrl": "",
+    "imageUrl": "assets/images/hero_sq.jpg",
     "ctas": [
       {
         "type": "github",
@@ -46,8 +61,44 @@
   "about": {
     "heading": "About Me",
     "subheading": "Professional Bio",
-    "body": "Master of Science in Big Data candidate with over 5 years of corporate experience in data engineering and intelligent automation. Proven track record of designing robust ETL/ELT pipelines and developing enterprise-grade Power BI dashboards to drive business intelligence. Experienced in utilizing Python, SQL, and Azure to translate complex operational requirements into reliable data products. Brings direct experience developing RPA solutions for the banking sector, combined with a passion for implementing AI/ML-enabled data management to build organizational trust and streamline financial services.",
-    "imageUrl": ""
+    "highlights": [
+      {
+        "emoji": "🎓",
+        "label": "Major",
+        "text": "Computer Science"
+      },
+      {
+        "emoji": "📍",
+        "label": "Location",
+        "text": "Vancouver - Canada"
+      },
+      {
+        "emoji": "💼",
+        "label": "Full-time",
+        "text": "Big Data Professional Master's student at Simon Fraser University"
+      },
+      {
+        "emoji": "💼",
+        "label": "Learning",
+        "text": "RAG pipelines, Airflow"
+      },
+      {
+        "emoji": "🌱",
+        "label": "Ask me about",
+        "text": "RPA, Python, Data Engineering, Web Scraping, Soccer"
+      },
+      {
+        "emoji": "🏠",
+        "label": "From",
+        "text": "Quito - Ecuador"
+      },
+      {
+        "emoji": "🗣️",
+        "label": "Languages",
+        "text": "English and Spanish"
+      }
+    ],
+    "imageUrl": "assets/images/about.jpg"
   },
   "experience": {
     "heading": "Experience",
@@ -111,19 +162,47 @@
     "groups": [
       {
         "category": "Languages",
-        "tags": ["Python", "Java", "PostgreSQL", "Linux/Unix & Bash"]
+        "tags": [
+          "Python",
+          "Java",
+          "PostgreSQL",
+          "Linux/Unix & Bash"
+        ]
       },
       {
         "category": "Infrastructure",
-        "tags": ["Docker", "Azure: DevOps", "AWS: S3, EMR, Redshift", "GCP: Dataproc, Cloud Run", "Aiven: Databases", "Git", "GitHub"]
+        "tags": [
+          "Docker",
+          "Azure: DevOps",
+          "AWS: S3, EMR, Redshift",
+          "GCP: Dataproc, Cloud Run",
+          "Aiven: Databases",
+          "Git",
+          "GitHub"
+        ]
       },
       {
         "category": "Data Platforms",
-        "tags": ["ETL Pipelines", "Data cleaning", "Data integration", "Apache Spark", "Data Lake & Delta Lake", "PySpark", "Pandas", "Databricks", "Gen AI & LLM Integration", "Langchain", "SciKit Learn"]
+        "tags": [
+          "ETL Pipelines",
+          "Data cleaning",
+          "Data integration",
+          "Apache Spark",
+          "Data Lake & Delta Lake",
+          "PySpark",
+          "Pandas",
+          "Databricks",
+          "Gen AI & LLM Integration",
+          "Langchain",
+          "SciKit Learn"
+        ]
       },
       {
         "category": "Data Visualization",
-        "tags": ["Power BI", "Matplotlib"]
+        "tags": [
+          "Power BI",
+          "Matplotlib"
+        ]
       },
       {
         "category": "Soft Skills",
@@ -151,7 +230,11 @@
         "repoLabel": "BigData-OG/og-gdelt",
         "problem": "Predict stock prices from global event sentiment using years of GDELT data at scale.",
         "systemDesign": "Scalable pipeline on GCP with highly available infrastructure for ingesting and serving GDELT event data into a predictive ML workflow.",
-        "techStack": ["Apache Spark", "Terraform", "GCP"],
+        "techStack": [
+          "Apache Spark",
+          "Terraform",
+          "GCP"
+        ],
         "outcome": "Processed 5 years of GDELT data to train a predictive ML model for stock prices based on global event sentiment."
       },
       {
@@ -160,7 +243,11 @@
         "repoLabel": "github.sfu.ca/nth8/TransLink-Analysis",
         "problem": "Deliver reliable transit insights from TransLink data with maintainable ingestion and clear visualization.",
         "systemDesign": "Data Medallion architecture and Data Lake for reliable ingestion feeding Power BI dashboards.",
-        "techStack": ["Data Lake", "Medallion Architecture", "Power BI"],
+        "techStack": [
+          "Data Lake",
+          "Medallion Architecture",
+          "Power BI"
+        ],
         "outcome": "Interactive dashboards using the TransLink data model to display operational insights."
       },
       {
@@ -169,7 +256,11 @@
         "repoLabel": "big-cachemoney/chadbot",
         "problem": "Provide real-time, data-driven LLM chat responses backed by structured data.",
         "systemDesign": "Dynamic chat interface with LangChain and SQL against a PostgreSQL database for live, data-backed answers.",
-        "techStack": ["LangChain", "SQL", "PostgreSQL"],
+        "techStack": [
+          "LangChain",
+          "SQL",
+          "PostgreSQL"
+        ],
         "outcome": "Real-time, data-driven LLM responses through a dynamic chat interface."
       }
     ]
